@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+  <title>Registro de talleres</title>
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" href="../static/css/half-slider.css" th:href="@{/css/half-slider.css}" />
+  
+ <!-- font  -->
+   <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet"  th:href="@{/font-awesome/css/font-awesome.min.css}"/>
+   
+  <!-- CSS  -->
+  
+  
+  <!--js -->
+  <!-- jQuery -->
+   
+
+    <!-- Bootstrap Core JavaScript -->
+ 
+  
+</head>
+<body>
+        <div th:replace="plantilla/header ::header">&nbsp;</div>
+        <header id="myCarousel" class="carousel slide">
+
+        </header>
+        
+        <div class="container">
+         
+         <div class="row">
+             <div class="col-lg-12">
+                 <h2>Registro de talleres</h2>
+             </div>
+         </div>
+        <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th data-field="idtaller" name="idtaller">ID</th>
+                    <th data-field="nomtaller" name="nomtaller">Nombre Taller</th>
+                    <th data-field="dirtaller" name="dirtaller">Direccion Taller</th>
+                    <th data-field="tallautorizado" name="tallautorizado">Autorizado</th>
+                </tr>
+                          
+                
+            </thead>
+            <tbody>
+                <tr th:each="taller: ${tallerList}">
+                    <td th:text="${taller.idtaller}"></td>
+  		    <td th:text="${taller.nomtaller}"></td>
+  		    <td th:text="${taller.dirtaller}"></td>
+  		    <td th:text="${taller.tallautorizado}"></td>
+  		   
+                </tr>   
+              
+                
+            </tbody>
+            
+        </table>
+        </div>
+            <div class="section">
+                <a class="btn btn-info" role="button" th:href="@{/taller/new}">Registrar Nuevo</a>
+                
+            </div>   
+        </div> 
+        
+             <!--  Scripts-->
+   <script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+   <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    </body>
+</html>

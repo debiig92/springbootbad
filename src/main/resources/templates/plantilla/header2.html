@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Sistema Inventario de Vehiculos</title>
+        <meta charset="UTF-8"/>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<script src="https://use.fontawesome.com/ff147e8253.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+</style>
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+
+
+    </head>
+    <body>
+
+<nav class="navbar navbar-default" th:fragment="header">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Sistema de Inventario de Vehiculos <script type="text/JavaScript"> 
+    var f = new Date(); 
+    document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear()); 
+</script></a>
+     <span class="badge" th:if="${numalertas!=0}" th:text="${mensajeA}"></span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <!--
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRUEBA <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+       <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">3rd level dropdown</a></li>
+              <li><a href="#">3rd level dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        
+        -->
+        
+           
+       <li class="dropdown" th:if="${usuario.idrol==1}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios y Roles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+       <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Gestionar Usuarios <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="/usuarioadd">Crear Usuario</a></li>
+          <li><a tabindex="-1" href="/usuarioindex">Consultar Usuarios</a></li>
+        
+        </ul>
+      </li>
+      <li class="dropdown-submenu">
+        <a class="test" tabindex="-1" href="#">Gestionar Roles y Accesos<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="/rolnew">Crear Rol</a></li>
+          <li><a tabindex="-1" href="/rolindex">Consultar Roles</a></li>
+          
+        </ul>
+      </li>
+          </ul>
+        </li>
+   
+       
+      <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==3 }">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Importacion<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar Importacion <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/crearImportacion">Crear Importacion</a></li>
+                   <li><a tabindex="-1" href="/importacion/importaciones">Consultar Importaciones</a></li>
+                 </ul>
+               </li>
+          </ul>
+        </li>
+     
+        
+     <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==2 or usuario.idrol==4}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reparacion<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar Taller <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/tallernew">Crear Taller</a></li>
+                   <li><a tabindex="-1" href="/tallerprincipal">Consultar Talleres</a></li>
+                    
+                    
+                 </ul>
+               </li>
+               
+    
+            <!--   <li><a href="#">Registrar proceso de reparación de vehiculos</a></li> -->
+               <li><a href="/listarProceso">Listar Proceso de Reparacion</a></li>
+               <li><a href="/procesoRepacion">Proceso Reparacion</a></li>
+          </ul>
+        </li>
+
+        
+   <!--          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuraciones<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar configuraciones <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="#">Crear configuracion</a></li>
+                   <li><a tabindex="-1" href="#">Consultar configuraciones</a></li>
+                    <li><a tabindex="-1" href="#">Modificar configuracion</a></li>
+                    <li><a tabindex="-1" href="#">Dar de baja</a></li>
+                 </ul>
+               </li>
+               
+    
+               <li><a href="#">Adicionar opciones de menú</a></li>
+               
+          </ul>
+        </li>
+      -->  
+        
+         <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==2}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Autorizaciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/entradasalidasolicitudes">Autorizar Entradas/Salidas de vehiculo de Bodega</a></li>
+            <li><a href="#">Solicitar de autorizacion de venta</a></li>
+            <!-- <li><a href="#">Autorizar Entradas/Salidas de vehiculos de Inventario</a></li> -->
+            
+          </ul>
+        </li>
+        
+     <li class="dropdown" th:if="${usuario.idrol==1}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Importador<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar importador <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/nuevoImportador">Registrar Importador</a></li>
+                   <li><a tabindex="-1" href="/principalimportador">Consultar Importadores</a></li>
+                    
+                 </ul>
+               </li>
+
+          </ul>
+        </li>
+        
+         <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==3}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/inventario">Consultar inventario de vehiculos</a></li>
+              <li><a href="/listarEspaciosBodega">Consultar Ubicacion de vehiculo en bodega</a></li>
+               <!-- <li><a href="#">Verificar espacio en bodega</a></li> -->
+               <!-- <li><a href="/espacios/busqueda">Asignar Vehiculo en bodega</a></li>-->
+          </ul>
+        </li>
+        
+  <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==3}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehiculos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar vehiculo<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/vehiculo/importaciones">Registrar vehiculo</a></li>
+                   <li><a tabindex="-1" href="/vehiculos/importaciones">Consultar vehiculos</a></li>
+                   <li><a tabindex="-1" href="/solicitud">Solicitar vehiculos para entrar a bodega</a></li>
+                    <li><a tabindex="-1" href="/verentradasalidasolicitudes">Consultar estado de solicitudes de vehiculos para entrar a bodega</a></li>
+                 </ul>
+               </li>
+              
+            <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Agregar Multimedia Defectos<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/multimedia/importacionesA">Agregar Audio</a></li>
+                   <li><a tabindex="-1" href="/multimedia/importacionesV">Agregar Video</a></li>
+                   <li><a tabindex="-1" href="/multimedia/importaciones">Agregar Imagenes</a></li>
+                 </ul>
+               </li>
+               
+               <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Agregar Multimedia para la Venta<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/imagenVeh/importacionesA">Agregar Audio</a></li>
+                   <li><a tabindex="-1" href="/imagenVeh/importacionesV">Agregar Video</a></li>
+                   <li><a tabindex="-1" href="/imagenVeh/importaciones">Agregar Imagenes</a></li>
+                 </ul>
+               </li>
+          </ul>
+        </li>
+        
+        
+        <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==2 or usuario.idrol==4}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bodega<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                 <a class="test" tabindex="-1" href="#">Gestionar Bodega <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/IngresarBodega">Crear Bodega</a></li>
+                   <li><a tabindex="-1" href="/verBodega">Editar Bodega</a></li>
+                <!--   <li><a tabindex="-1" href="/listarProceso">Listar Proceso de Reparacion</a></li>
+                   <li><a tabindex="-1" href="/procesoRepacion">Proceso Reparacion</a></li> -->
+                   <li><a tabindex="-1" href="/gestionBodega">Gestionar Bodega</a></li>
+                   <li><a tabindex="-1" href="/listarEspaciosBodega">Ver Espacio de Vehiculo</a></li>                   
+                 </ul>
+               </li>
+          </ul>
+        </li>
+        
+         <li class="dropdown" th:if="${usuario.idrol==1 or usuario.idrol==2 or usuario.idrol==4 or usuario.idrol==5}">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Venta Vehiculos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu" th:if="${usuario.idrol==1 or usuario.idrol==5}">
+                 <a class="test" tabindex="-1" href="#">Gestionar Cliente<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/registrarCliente">Registrar Cliente</a></li>
+              <!--     <li><a tabindex="-1" href="#">Consultar Cliente</a></li>
+                   <li><a tabindex="-1" href="#">Eliminar  Cliente</a></li> -->
+                 </ul>
+               </li>
+          <!--  <li><a href="#">Autorizar solicitud de venta</a></li>
+            <li><a href="#">Asignar Precio de venta</a></li> -->
+              <li><a href="/venta/entrega" th:if="${usuario.idrol==1 or usuario.idrol==2 or usuario.idrol==4}">Entregar Vehiculo</a></li>
+            <li class="dropdown-submenu" th:if="${usuario.idrol==1 or usuario.idrol==5}">
+                 <a class="test" tabindex="-1" href="#">Gestionar venta del vehiculo<span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a tabindex="-1" href="/venta/busqueda">Registrar venta del vehiculo</a></li>
+                   <li><a tabindex="-1" href="/venta/consulta">Consultar venta del vehiculo</a></li>
+                <!--   <li><a tabindex="-1" href="#">Eliminar  venta del vehiculo</a></li> -->
+                 </ul>
+               </li>
+          </ul>
+        </li>
+        
+                
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <i class="fa fa-user fa-fw"></i><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span th:text="${usuario.nomusuario}"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li th:if="${usuario.idrol==3}"><a href="/alertas"><span class="badge" th:if="${numalertas!=null}" th:text="${numalertas}"></span>Ver Alertas</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesion</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    </body>
+</html>

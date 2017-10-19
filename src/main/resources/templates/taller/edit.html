@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+  <title>Inventario de vehiculo</title>
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" href="../static/css/half-slider.css" th:href="@{/css/half-slider.css}" />
+  
+ <!-- font  -->
+   <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet"  th:href="@{/font-awesome/css/font-awesome.min.css}"/>
+   
+  <!-- CSS  -->
+  
+  
+  <!--js -->
+  <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+      <!--  Scripts-->
+   <script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+   <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"/>
+  
+</head>
+    <body>
+        <!--parte del menu falta agregar si quieren banner -->
+     <div th:replace="plantilla/header ::header">&nbsp;</div>
+     <header id="myCarousel" class="carousel slide">
+
+     </header>
+     <div class="container">
+         <div class="row">
+             <div class="col-lg-12">
+                 <h2>Editar datos de taller</h2>
+             </div>
+         </div>
+         
+         <div class="row">
+             <form class="form-horizontal" role="form" th:action="@{/taller/update}" th:object="${taller}" method="post">
+                 <input type="hidden" th:field="*{idtaller}"/>
+                 <div class="form-group">
+                    <label for="nombretaller" class="col-lg-2 control-label">Nombre del taller</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="nombretaller"
+                            placeholder="Nombre del taller" th:field="*{nomtaller}" name="nomtaller"/>
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label for="dirtaller" class="col-lg-2 control-label">Direccion del taller</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="dirtaller"
+                            placeholder="Direccion del taller" th:field="*{dirtaller}" name="dirtaller"/>
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="tallautorizado" th:field="*{tallautorizado}" th:value="*{tallautorizado}"/>Activo</label>
+                    </div>
+                 </div>
+                 <button type="submit" name="action">Guardar</button>
+             </form>
+         </div>
+     </div>
+     
+    </body>
+</html>

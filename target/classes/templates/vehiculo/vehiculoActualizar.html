@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="utf-8"/>
+  <title>Agregar Vehiculo</title>
+
+ 
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://use.fontawesome.com/ff147e8253.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+</head>
+<body>
+<div th:replace="plantilla/header2 ::header">&nbsp;</div>
+<div id="page-wrapper" class="container">
+  <h2>Modificar Vehiculos</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">Datos Vehiculos por Importacion</div>
+    <div class="panel-body">
+        
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Marca</label>
+    <div class="col-sm-10">
+     <select id="marca" th:field="*{idmarca}" name="idmarca" class="form-control">
+                <option th:each="m : ${idmarca}" th:value="${m.idmarca}"  th:text="${m.nommarca}" th:rel="${m.idmarca}"></option>
+    </select>
+    </div>
+  </div>
+  <form class="form-horizontal" role="form" th:action="@{/vehiculo/update}" th:object="${vehiculo}" method="post">
+
+        <div class="form-group">
+             
+               <div class="col-sm-10">
+                <input class="form-control" type="hidden" th:field="*{idvehiculo}"/> 
+               </div>
+             </div>
+            <div class="form-group">
+            
+               <div class="col-sm-10">
+                <input class="form-control" type="hidden" th:field="*{idimport.idimport}"/> 
+               </div>
+             </div>
+       <div class="form-group">
+               
+               <div class="col-sm-10">
+                <input class="form-control" type="hidden" th:field="*{idestado.idestado}"/> 
+               </div>
+     </div>
+   <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Modelo</label>
+    <div class="col-sm-10">
+      <select id="modelo" name="modelo" th:field="*{idmodelo}" class="form-control">
+                <option th:each="mo : ${idmodelo}" th:value="${mo.idmodelo}" th:text="${mo.nommodel}" th:rel="${mo.idmarca}"></option>
+     </select>
+    </div>
+  </div>
+
+  
+    <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Año</label>
+    <div class="col-sm-10">  
+      <select id="anio" name="anio" class="form-control">
+			  <option>2000</option>
+			  <option>2001</option>
+			  <option>2002</option>
+			  <option>2003</option>
+			  <option>2004</option>
+	</select>
+     </div>
+  </div>    
+      <div class="form-group">
+               <label for="inputPassword3" class="col-sm-2 control-label">Costo Inicial</label>
+               <div class="col-sm-10">
+                   <input type="number" name="costoinicial"  th:field="*{costoinicial}" placeholder="Ingrese el costo inicial del vehiculo" class="form-control" required="true"/>
+               </div>
+             </div>
+       <div class="form-group">
+               <label for="inputEmail3" class="col-sm-2 control-label">Precio Salida</label>
+               <div class="col-sm-10">
+                <input class="form-control" type="number" th:field="*{preciosalida}"/> 
+               </div>
+             </div>
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Guardar</button>
+    </div>
+  </div>
+
+</form>
+    
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

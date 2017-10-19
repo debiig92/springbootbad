@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Sistema de Inventario de Vehiculos en Linea</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'/>  
+<link rel="stylesheet" href="css/formoid-solid-blue.css" th:href="@{/css/formoid-solid-blue.css}" type="text/css" />
+<script type="text/javascript" src="formoidv2_files/formoid1/jquery.min.js" th:src="@{/formoidv2_files/formoid1/jquery.min.js}"></script> 
+<!--slider-->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="js/script.js" type="text/javascript" th:src="@{/js/script.js}"></script>
+<script src="js/superfish.js" th:src="@{/js/superfish.js}"></script>
+</head>
+<body>
+<div class="header-bg">
+	<div class="wrap"> 
+		<div class="h-bg">
+			<div class="total">
+				<div class="header">
+					<div class="box_header_user_menu">
+					
+					</div>
+					<div class="header-right">
+						<ul class="follow_icon">
+					
+							<ul class="user_menu"><li class="last"><a href=""><div class="button-t"><span><a href="/login">Login</a></span></div></a></li></ul>
+						</ul>
+					</div><div class="clear"></div> 
+					<div class="header-bot">
+						<div class="logo">
+							<a href="/"><img src="images/logo2.png" th:src="@{/images/logo2.png}" alt=""/></a>
+						</div>
+						<div class="search">
+						    <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+						    <button class="gray-button" href="#"><span>Busqueda</span></button>
+				       </div>
+					<div class="clear"></div> 
+				</div>		
+		</div>	
+		 <div th:replace="plantilla/menu ::header">&nbsp;</div>
+		<div class="banner-top">
+			<div class="header-bottom">
+				 <div>
+				     	<div id="slideshow">
+							<ul class="slides">
+						    	<li><a href="#"><canvas ></canvas><img src="images/banner4.jpg" alt="Marsa Alam underawter close up" /></a></li>
+						        <li><a href="#"><canvas></canvas><img src="images/banner2.jpg" alt="Turrimetta Beach - Dawn" /></a></li>
+						        <li><a href="#"><canvas></canvas><img src="images/banner3.jpg" alt="Power Station" /></a></li>
+						        <li><a href="#"><canvas></canvas><img src="images/banner1.jpg" alt="Colors of Nature" /></a></li>
+						    </ul>
+						    <span class="arrow previous"></span>
+						    <span class="arrow next"></span>
+				  	</div>
+		  			<div class="content-wrapper">		  
+						<div class="content-top">
+                                                    <div class="box_wrapper"><h1>Nuevos autos del mes</h1>
+								</div>
+							 <div class="text"> 	
+								<div class="grid_1_of_3 images_1_of_3" th:each="imp: ${vehiculos}">
+									<div class="grid_1">
+										<a href="single.html"><img src="images/carro1.JPG" alt=""/></a>
+											<div class="grid_desc">
+												<p class="title" th:text="${imp.nommarca}"></p>
+												<p class="title1" th:text="${imp.nommodel}"></p>
+													 <div class="price" style="height: 19px;">
+													 	 <span class="reducedfrom" th:text="${imp.preciosalida}"></span>
+								        				
+													</div>
+													<div class="cart-button">
+											
+														<button class="button"><span>Detalle</span></button>
+													<div class="clear"></div>
+												</div>
+											</div>
+                                                                        </div>		
+                                                            </div>
+                                                         <div class="clear"></div>
+						</div>
+				</div>
+		</div>
+      </div>				  
+	</div>
+		
+		<div class="footer-bottom">
+			<div class="copy">
+				<p>All rights Reserved | Design by Grupo 5</p>
+			</div>
+		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+    	
+    	
+            

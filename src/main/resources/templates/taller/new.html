@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+
+  
+  <title>Inventario de vehiculo</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+</head>
+    <body>
+        <!--parte del menu falta agregar si quieren banner -->
+     <div th:replace="plantilla/header2 ::header">&nbsp;</div>
+     <header id="myCarousel" class="carousel slide">
+
+     </header>
+     <div class="container">
+         <div class="row">
+             <div class="col-lg-12">
+                 <h2>Registro de taller</h2>
+             </div>
+         </div>
+         
+         <div class="row">
+             <form class="form-horizontal" role="form" th:action="@{/taller/add}" th:object="${taller}" method="post">
+                 <div class="form-group">
+                    <label for="nombretaller" class="col-lg-2 control-label">Nombre del taller</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="nombretaller"
+                            placeholder="Nombre del taller" name="nomtaller"/>
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <label for="dirtaller" class="col-lg-2 control-label">Direccion del taller</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="dirtaller"
+                            placeholder="Direccion del taller" name="dirtaller"/>
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="tallautorizado" value="1"/>Activo</label>
+                    </div>
+                 </div>
+                 <button type="submit" name="action">Guardar</button>
+             </form>
+         </div>
+     </div>
+     
+    </body>
+</html>

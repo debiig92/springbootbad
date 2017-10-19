@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Sistema Inventario de Vehiculos</title>
+
+    
+    <!-- Custom CSS -->
+
+	<link href="../static/css/shop-homepage.css" rel="stylesheet"  th:href="@{/css/shop-homepage.css}"/>
+<!-- jQuery -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='js/jquery-1.8.3.min.js' th:src="@{/js/jquery-1.8.3.min.js}"></script>
+  <script src='js/jquery.elevatezoom.js' th:src="@{/js/jquery.elevatezoom.js}"></script>
+  <link rel="stylesheet" type="text/css"  href="css/stylezoom.css" th:href="@{/css/stylezoom.css}"/>
+<script src='js/scriptzoom.js' th:src="@{/js/scriptzoom.js}"></script>
+
+</head>
+
+<body>
+
+ <div th:replace="plantilla/menu ::header">&nbsp;</div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Sistema Inventario de Vehiculos</p>
+                <a href="/"><img th:src="@{/images/logo.png}" alt=""/></a>
+            </div>
+
+                <div class="col-md-9">
+                    <h3>Datos</h3>
+       <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th data-field="idimport" name="idimport">Marca</th>
+                    <th data-field="nit" name="nit">Modelo</th>
+                    <th data-field="fecimport" name="fecimport">Año</th>
+                    <th data-field="cantveh" name="cantveh">Precio</th>
+                 
+                </tr>
+                          
+                
+            </thead>
+            <tbody>
+                <tr th:each="imp: ${vehiculo}">
+                    <td th:text="${imp.idmodelo.idmarca.nommarca}"></td>
+                    <td th:text="${imp.idmodelo.nommodel}"></td>
+      		    <td th:text="${imp.anio}"></td>
+  		    <td th:text="${imp.preciosalida}"></td>
+               </tr>   
+            </tbody>
+            
+        </table>
+                    
+                <hr/>
+                
+                <h3>Multimedia</h3>
+                    <div class="col-sm-4 col-lg-4 col-md-4" th:each="imgs: ${imagenes}">
+                        <div class="thumbnail">
+                           <img th:src="@{'data:image/jpeg;base64,'+${imgs.imagen}}"/>                           
+                        </div>
+                    </div>
+                
+                <div class="col-sm-4 col-lg-4 col-md-4" th:each="imgs: ${audio}">
+                       
+                              <audio controls="controls">
+                                  <source th:src="@{'data:audio/mpeg;base64,'+${imgs.imagen}}"></source>
+                              </audio>
+                                                
+                </div>
+                
+                    
+                 <div class="col-sm-4 col-lg-4 col-md-4" th:each="imgs: ${video}">
+                       
+                                <video width="320" height="240" controls="controls">
+                                    <source th:src="@{'data:video/mp4;base64,'+${imgs.imagen}}"/>
+                                </video>                 
+                 </div>
+                   
+                </div>
+            
+            
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr/>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>All rights Reserved | Design by Grupo 5 BAD115</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    
+</body>
+
+</html>

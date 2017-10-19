@@ -1,0 +1,105 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8"/>
+
+        <title>Registro de Entradas y Salidas</title>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://use.fontawesome.com/ff147e8253.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+<link href="../static/css/datepicker.css" rel="stylesheet"  th:href="@{/css/datepicker.css}"/>
+ <script src="../static/js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+    </head>
+    <body>        
+        <div th:replace="plantilla/header2::header">&nbsp;</div>
+        <div id="page-wrapper" class="container">
+            <h2>Registro de Entradas y Salidas</h2>
+            <div class="panel panel-default">
+
+                <div class="panel-heading">Registro de Entradas y Salidas</div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" id="form" role="form" th:action="@{/autorizarE}"  method="get">                        
+                        <table style="table-layout:fixed;" WIDTH="100%">
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <h4>Opciones</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="control-label centered">Bodeguero</label>
+                                    <select name="idbodeguero" id="idtaller" class="form-control">
+                                        <option th:each="listas:${bodegueros}"
+                                                th:value="${listas.idbodeguero}"
+                                                th:text="${listas.nombodeguero} +' '+${listas.apebodeguero}">
+                                        </option>
+                                    </select>
+                                </td>
+                                <td width="20"></td>
+                                <td>
+                                    <label class="control-label centered">Tipo de Remolque:</label>
+                                    <select name="placarem" id="placarem" class="form-control">
+                                        <option th:each="listas:${lista3}"
+                                                th:value="${listas.placarem}"
+                                                th:text="${listas.nomtiporem}+' maximo: '+${listas.maxvehrem}+' placa: '+${listas.placarem}">
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="50"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="control-label centered">Motorista Asignado:</label>
+                                    <select name="duimotorista" id="duimotorista" class="form-control">
+                                        <option th:each="listas:${lista4}"
+                                                th:value="${listas.duimotorista}"
+                                                th:text="'DUI: '+${listas.duimotorista}+' '+${listas.nommotorista}+' tel: '+${listas.telmotorista}">
+                                        </option>
+                                    </select>
+                                </td>
+                                <td width="20"></td>
+                                <td>
+                                    <label class="control-label centered">Fecha Entrada/Salida:</label>
+                                    <div class="input-append date" id="dp3" data-date-format="dd/mm/yyyy">
+                                        <input type="text" name="fechaentsal" data-date-format="dd/mm/yyyy" placeholder="Ingrese la fecha en formato dd/MM/YYYY" id="datepicker" class="form-control" required="true"/>
+                                    </div>
+                                     <input type="hidden" class="form-control" id="identsalveh" name="identsalveh" th:value="${identsalveh}"/>
+                                    <!--<input type="date" name="fechaingtaller"  class="form-control" required="true"/>-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="50"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="center">                                    
+                                    <button type="submit" class="btn btn-default">Guardar</button>                                        
+                                </td>
+                            </tr>
+                        </table>                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>

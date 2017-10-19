@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+ 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+  <title>Importadores</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://use.fontawesome.com/ff147e8253.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+<link href="../static/css/datepicker.css" rel="stylesheet"  th:href="@{/css/datepicker.css}"/>
+ <script src="../static/js/bootstrap-datepicker.js" th:src="@{/js/bootstrap-datepicker.js}"></script>
+</head>
+
+<body>
+        <div th:replace="plantilla/header2::header">&nbsp;</div>
+        <header id="myCarousel" class="carousel slide">
+
+        </header>
+        
+        <div class="container">
+         
+         <div class="row">
+             <div class="col-lg-12">
+                 <h2>Registro de Importadores</h2>
+             </div>
+         </div>
+        <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                     <th data-field="nit" name="nit">NIT</th>
+                    <th data-field="apeimp" name="nomtaller">Apellido imp</th>
+                    <th data-field="nomimp" name="nomimp">Nombre imp</th>
+                    <th data-field="genimp" name="genimp">Genero</th>
+                     <th data-field="aperesp" name="aperesp">Apellido resp</th>           
+                    <th data-field="nomresp " name="nomresp">Nombre resp</th>
+                    
+                    <th data-field="telresp" name="telresp">Telefono</th>
+                </tr>
+                          
+                
+            </thead>
+            <tbody>
+                <tr th:each="importador: ${importadorList}">
+                    <td th:text="${importador.nit}"></td>
+  		    <td th:text="${importador.apeimp}"></td>
+  		    <td th:text="${importador.nomimp}"></td>
+  		    <td th:text="${importador.genimp}"></td>
+                    <td th:text="${importador.aperesp}"></td>
+                    <td th:text="${importador.nomresp}"></td>
+  		    <td th:text="${importador.telresp}"></td>
+  		   
+                </tr>   
+              
+                
+            </tbody>
+            
+        </table>
+        </div>
+            <div class="section">
+                <a class="btn btn-info" role="button" th:href="@{/nuevoImportador}">Registrar Nuevo</a>
+                
+            </div>   
+        </div> 
+        
+             <!--  Scripts-->
+  
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Agregar Multimedia</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://use.fontawesome.com/ff147e8253.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+ <link href="../static/css/style_stefh.css" rel="stylesheet"  th:href="@{/css/style_stefh.css}"/>
+</head>
+<body>
+<div th:replace="plantilla/header2 ::header">&nbsp;</div>
+<div id="page-wrapper" class="container">
+     <h2>Agregar Multimedia a Vehiculo listo para la venta</h2>      
+      <div class="panel panel-primary filterable" id="panel-total1" >
+           <div class="panel-heading" id="panel-header">
+               <h3 class="panel-title">Vehiculos listos para la venta</h3>
+               <div class="pull-right">
+                   <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>Filtrar</button>
+               </div>
+           </div>
+        <table class="table">
+            <thead>
+                <tr class="filters">
+                    <th><input type="text" class="form-control" placeholder="Marca" disabled="true"/></th>
+                    <th><input type="text" class="form-control" placeholder="Modelo" disabled="true"/></th>
+                    <th><input type="text" class="form-control" placeholder="Estado" disabled="true"/></th>
+                    <th><input type="text" class="form-control" placeholder="Año" disabled="true"/></th>
+                    <th><input type="text" class="form-control" placeholder="Costo Inicial" disabled="true"/></th>
+                    <th><input type="text" class="form-control" placeholder="Precio Salida" disabled="true"/></th>
+                    <th>Accion</th>
+                </tr>
+                          
+                
+            </thead>
+            <tbody>
+                <tr th:each="imp: ${vehiculo}">
+                    <td th:text="${imp.idmodelo.idmarca.nommarca}"></td>
+                    <td th:text="${imp.idmodelo.nommodel}"></td>
+                    <td th:text="${imp.idestado.nomestado}"></td>
+  		    <td th:text="${imp.anio}"></td>
+  		    <td th:text="${imp.costoinicial}"></td>
+  		    <td th:text="${imp.preciosalida}"></td>
+                   <td><a class="btn btn-success" role="button" th:href="@{/imagenveh/agregarA/}+${imp.idvehiculo}">Agregar Multimedia</a></td>
+                </tr>   
+            </tbody>
+            
+        </table>
+        </div>
+     <script type="text/javascript">
+$(document).ready(function(){
+    $('.filterable .btn-filter').click(function(){
+        var $panel = $(this).parents('.filterable'),
+        $filters = $panel.find('.filters input'),
+        $tbody = $panel.find('.table tbody');
+        if ($filters.prop('disabled') == true) {
+            $filters.prop('disabled', false);
+            $filters.first().focus();
+        } else {
+            $filters.val('').prop('disabled', true);
+            $tbody.find('.no-result').remove();
+            $tbody.find('tr').show();
+        }
+    });
+
+    $('.filterable .filters input').keyup(function(e){
+        /* Ignore tab key */
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        /* Useful DOM data and selectors */
+        var $input = $(this),
+        inputContent = $input.val().toLowerCase(),
+        $panel = $input.parents('.filterable'),
+        column = $panel.find('.filters th').index($input.parents('th')),
+        $table = $panel.find('.table'),
+        $rows = $table.find('tbody tr');
+        /* Dirtiest filter function ever ;) */
+        var $filteredRows = $rows.filter(function(){
+            var value = $(this).find('td').eq(column).text().toLowerCase();
+            return value.indexOf(inputContent) === -1;
+        });
+        /* Clean previous no-result if exist */
+        $table.find('tbody .no-result').remove();
+        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        $rows.show();
+        $filteredRows.hide();
+        /* Prepend no-result row if all rows are filtered */
+        if ($filteredRows.length === $rows.length) {
+            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+        }
+    });
+});
+</script>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.consesionariavehiculo_ConcesionariaVehiculo_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Motorista</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Entsalveh</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Persona</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Cliente</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Reparacion</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Catalogovehiculo</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Modelo</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Importador</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Vehiculoremolque</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Vehiculo</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Autorizacion</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Usuario</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Menu</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Rentsalveh</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Tipovehrem</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Taller</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Bodega</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Marca</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Contactoimportador</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Clienteveh</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Espavehiculo</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Bodeguero</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Estado</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Respaveh</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Saltaller</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Vehtaller</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Rol</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Entsalinventario</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Importacion</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Privilegio</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Multimediaveh</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Piso</class>
+    <class>com.consesionariavehiculo.ConcesionariaVehiculo.entidades.Detallevehdef</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemainventario?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>

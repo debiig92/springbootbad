@@ -1,0 +1,237 @@
+/*
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+*/
+/* reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+@font-face {
+	font-family: 'AmbleRegular';
+    src: url( ../fonts/Amble-Light-webfont.ttf ) format("truetype"); 
+}
+body{
+	font-family: 'AmbleRegular';
+	background:url(../images/bg-body.jpg)repeat;
+}
+.wrap{
+	width:80%;
+	margin:0 auto;
+	-moz-transition:all .2s linear;
+	-webkit-transition:all .2s linear; 
+	-o-transition:all .2s linear; 
+	-ms-transition:all .2s linear;
+}
+.total{
+	-webkit-box-shadow: 0px 0px 15px #E3E3E3;
+	box-shadow: 0px 0px 15px #E3E3E3;
+	-o-box-shadow: 0px 0px 15px #E3E3E3;
+	-moz-box-shadow: 0px 0px 15px #E3E3E3;
+}
+.user_menu li a{
+	color:#58ACFA;
+}
+.user_menu li a:hover, .user_menu li.act a {
+	color:#58ACFA;
+}
+.user_menu li img{
+	padding-right:2%;
+}
+.user_menu li:first-child {
+	background: none;
+	padding-left: 0;
+}
+.user_menu li {
+	float: left;
+	display: inline-block;
+	white-space: nowrap;
+	padding: 0px 10px 0px 0px;
+	background: url('../images/menu_line.gif') 0 2px no-repeat rgba(0, 0, 0, 0);
+	padding-left: 9px;
+}
+/*--search--*/
+.search {
+	float: right;
+	margin-top: 1%;
+}
+.search input[type="text"] {
+	border: 1px solid #BABDB9;
+	font-size: 13px;
+	width: 240px;
+	height: 32px;
+	outline: none;
+	border: 1px solid #D9D9D9;
+	border-bottom: 1px solid #D9D9D9;
+	background: #FFF;
+	-webkit-box-shadow: inset 1px 4px 4px rgba(227, 227, 227, 0.5);
+	box-shadow: inset 1px 4px 4px rgba(227, 227, 227, 0.5);
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.gray-button {
+	padding: 2px 10px 2px;
+	height:35px;
+	color:#D54F30;
+	font-size: 12px;
+	cursor: pointer;
+	border: 1px solid #D9D9D9;
+	border-bottom: 1px solid #D9D9D9;
+	background: #FFF;
+	-webkit-box-shadow: inset 1px 4px 4px rgba(227, 227, 227, 0.5);
+	box-shadow: inset 1px 4px 4px rgba(227, 227, 227, 0.5);
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.gray-button:hover {
+	color:#000;
+}
+/*--menu--*/
+.menu{
+	background:	#58ACFA;
+}
+.top-nav{
+	margin: 0 20px 0 20px;
+}
+.top-nav li {
+	color: #FBFAFA;
+	border: none;
+	float: left;
+	border-right: 2px ridge #F75633;
+}
+.top-nav li.active a, .top-nav li a:hover {
+	background: #f0f0f0;
+	color:#222;
+}
+.top-nav li a {
+	display: block;
+	color:#fff;
+	padding:20px 0 16px;
+	min-height: 23px;
+	height: auto !important;
+	width:217px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.top-nav li:first-child{
+	border-left: 2px ridge #F75633;
+}
+.h-bg{
+	padding:5%;
+}
+.header{
+	background:#fff;
+	padding:3% 2% 0 2%;
+}
+.banner{
+	padding-bottom: 2%;
+	background: url(../images/banner-bottom.png) no-repeat center bottom;
+}
+.logo{
+	float:left;
+}
+.header-top{
+	padding-bottom: 20px;
+}
+.header-bot{
+	padding:5% 2% 1.2% 2%;
+	background:url(../images/tail.gif);
+}
+.follow_icon {
+	list-style: none;
+	float: right;
+}
+.follow_icon li {
+	float: left;
+	margin-left: 13px;
+}
+.follow_icon li a img {
+	vertical-align: middle;
+}
+.follow_icon li a img:hover {
+	opacity: 0.7;
+}
+.banner-top{
+	padding:2% 2%;
+	background: #FFF;
+}
+/*--menu--*/
+.header-bottom {
+	background: url('../images/header-bottom-bg.png');
+	background-repeat: repeat-x;
+	border-top: 6px solid #FFF;
+	border-bottom: 6px solid #FFF;
+}
+.header-para {
+	float: left;
+	width: 25%;
+}
+.header_bottom_right_images {
+	float:left;
+	width: 74%;
+	margin-right: 1%;
+}
+.first-list {
+	border: 1px solid #F4F4F4;
+	border-bottom: 1px solid #D9D9D9;
+	border-right: 1px solid #F4F4F4;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: #FFF;
+	background: -moz-linear-gradient(top,#F4F4F4 0%,#FFF 100%);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#F4F4F4),color-stop(100%,#FFF));
+	background: -webkit-linear-gradient(top,#F4F4F4 0%,#F2F2F2 100%);
+	background: -o-linear-gradient(top,#F4F4F4 0%,#FFF 100%);
+	background: -ms-linear-gradient(top,#F4F4F4 0%,#FFF 100%);
+	background: linear-gradient(to bottom,#F4F4F4 0%,#FFF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4',endColorstr='#ffffff',GradientType=0);
+	margin-bottom: 2px;
+}
+.div_2{
+	float:left;
+	margin: 10px;
+}
+.div_2 a{
+	color:#000;
+	font-size:1.8em;
+}
+.div_2 a:hover{
+	color:#D54F30;
+}
+.div_img{
+	float:right;
+}
+.first img {
+	bottom: 5px;
+	right: 10px;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	-ms-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+	
+

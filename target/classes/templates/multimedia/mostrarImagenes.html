@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Multimedia</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+<!-- jQuery -->
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script src="https://use.fontawesome.com/ff147e8253.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="../static/css/multimenu.css" rel="stylesheet"  th:href="@{/css/multimenu.css}"/>
+ <script src="../static/js/multimenu.js" th:src="@{/js/multimenu.js}"></script>
+</head>
+<body>
+<div th:replace="plantilla/header2 ::header">&nbsp;</div>
+<div id="page-wrapper" class="container">
+     <h2>Agregar Multimedia</h2>  
+ <div class="panel panel-default">
+   <div class="panel-heading">Multimedia del Vehiculo</div>
+    <div class="panel-body">
+           
+            <div class="row">
+
+                    <div class="col-sm-4 col-lg-4 col-md-4" th:each="imgs: ${imagenes}">
+                        <div class="thumbnail">
+                           <img th:src="@{'data:image/jpeg;base64,'+${imgs}}"/>                           
+                        </div>
+                    </div>
+
+                   
+                </div>
+<!--<table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th data-field="idimport" name="idimport">Imagenes</th>
+                </tr>
+                          
+                
+            </thead>
+            <tbody>
+             <tr th:each="imgs: ${imagenes}">
+                    <td><img th:src="@{'data:image/jpeg;base64,'+${imgs}}"/></td>
+           <td><img th:src="@{'data:image/jpeg;base64,'+${imagen}}"/></td> 
+               </tr>   
+  
+            </tbody>
+            
+        </table>
+        
+        -->
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+         <div th:replace="/panelAdmin ::header">&nbsp;</div>
+         
+         <div class="container">
+  <h2>Ingresar Importación</h2>
+  <div class="panel panel-default">
+  
+    <div class="panel-heading">Datos de Importacion y Vehiculos</div>
+    <div class="panel-body">
+    <form class="form-horizontal" action = "agregarImportacion.jsp">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">NIT</label>
+    <div class="col-sm-10">
+   
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Fecha</label>
+    <div class="col-sm-10">
+        <input type="date" name="fecha" class="form-control" required="true"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Cantidad de Vehiculos</label>
+    <div class="col-sm-10">
+      <input type="text" name="cantidad" class="form-control" id="inputEmail3" required="true"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Guardar</button>
+    </div>
+  </div>
+</form>
+    
+       </div>
+       </div>
+       </div>
+    </body>
+</html>
